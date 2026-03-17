@@ -1150,6 +1150,35 @@
     </div>
   </section>
 
+  <!-- GOLD MARKET -->
+  <section id="gold-market" style="background: #0D0D0D; padding: 3rem 2rem;">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom: 2rem;">
+        <p class="section-label">Live Market</p>
+        <h2 class="section-title">Gold Price Today</h2>
+        <div class="gold-divider" style="margin: 1rem auto 1.5rem;"></div>
+      </div>
+      <div class="reveal" style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem;">
+        <div style="background:#1C1C1C; border:1px solid rgba(212,168,67,0.25); padding:2rem 2.5rem; text-align:center; min-width:200px;">
+          <div style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:#A89F88; margin-bottom:0.5rem;">XAU/USD (per oz)</div>
+          <div id="gold-usd" style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:700; color:#D4A843;">--</div>
+          <div id="gold-usd-change" style="font-size:0.82rem; margin-top:0.3rem; color:#A89F88;">Loading...</div>
+        </div>
+        <div style="background:#1C1C1C; border:1px solid rgba(212,168,67,0.25); padding:2rem 2.5rem; text-align:center; min-width:200px;">
+          <div style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:#A89F88; margin-bottom:0.5rem;">XAU/KES (per oz)</div>
+          <div id="gold-kes" style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:700; color:#D4A843;">--</div>
+          <div style="font-size:0.82rem; margin-top:0.3rem; color:#A89F88;">Kenyan Shilling</div>
+        </div>
+        <div style="background:#1C1C1C; border:1px solid rgba(212,168,67,0.25); padding:2rem 2.5rem; text-align:center; min-width:200px;">
+          <div style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:#A89F88; margin-bottom:0.5rem;">per gram (USD)</div>
+          <div id="gold-gram" style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:700; color:#D4A843;">--</div>
+          <div style="font-size:0.82rem; margin-top:0.3rem; color:#A89F88;">Troy oz = 31.1g</div>
+        </div>
+      </div>
+      <p style="text-align:center; font-size:0.72rem; color:#5A5248; margin-top:1.5rem;" id="gold-updated">Fetching live data...</p>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
@@ -1170,19 +1199,21 @@
           <a href="mailto:millershikolikenya@gmail.com" class="social-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4A843"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> Email</a>
         </div>
 
-        <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+        <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="handleNetlifySubmit(event)">
+          <input type="hidden" name="form-name" value="contact"/>
+          <input type="hidden" name="bot-field" style="display:none"/>
           <div class="form-row">
-            <input type="text" placeholder="Your Name" required/>
-            <input type="email" placeholder="Email Address" required/>
+            <input type="text" name="name" placeholder="Your Name" required/>
+            <input type="email" name="email" placeholder="Email Address" required/>
           </div>
-          <select>
+          <select name="type">
             <option value="" disabled selected>I am a...</option>
             <option value="investor">Potential Investor</option>
             <option value="miner">Artisanal Miner / Supplier</option>
             <option value="partner">Business Partner</option>
             <option value="other">Other</option>
           </select>
-          <textarea placeholder="Your message..."></textarea>
+          <textarea name="message" placeholder="Your message..."></textarea>
           <button type="submit" class="btn-primary">Send Message</button>
         </form>
 
@@ -1235,13 +1266,55 @@
     }, { threshold: 0.1 });
     reveals.forEach(r => observer.observe(r));
 
-    function handleSubmit(e) {
+    async function handleNetlifySubmit(e) {
       e.preventDefault();
-      const btn = e.target.querySelector('button');
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#2a7a2a';
-      setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; e.target.reset(); }, 3000);
+      const form = e.target;
+      const btn = form.querySelector('button');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const formData = new FormData(form);
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
+        btn.textContent = 'Message Sent ✓';
+        btn.style.background = '#2a7a2a';
+        form.reset();
+        setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; btn.disabled = false; }, 4000);
+      } catch(err) {
+        btn.textContent = 'Error — Try WhatsApp';
+        btn.style.background = '#7a2a2a';
+        setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; btn.disabled = false; }, 4000);
+      }
     }
+
+    // Live gold price
+    async function fetchGoldPrice() {
+      try {
+        const res = await fetch('https://api.metals.live/v1/spot/gold');
+        const data = await res.json();
+        const usd = data[0]?.price || null;
+        if (usd) {
+          const kesRate = 129.5;
+          const kes = (usd * kesRate).toLocaleString('en-KE', {maximumFractionDigits: 0});
+          const gram = (usd / 31.1035).toFixed(2);
+          document.getElementById('gold-usd').textContent = '$' + usd.toLocaleString();
+          document.getElementById('gold-kes').textContent = 'KES ' + kes;
+          document.getElementById('gold-gram').textContent = '$' + gram;
+          document.getElementById('gold-updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+        }
+      } catch(e) {
+        // fallback - use approximate known price
+        document.getElementById('gold-usd').textContent = '~$3,200';
+        document.getElementById('gold-kes').textContent = '~KES 414K';
+        document.getElementById('gold-gram').textContent = '~$102';
+        document.getElementById('gold-updated').textContent = 'Live data unavailable — showing estimate';
+      }
+    }
+    fetchGoldPrice();
+    setInterval(fetchGoldPrice, 60000);
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
