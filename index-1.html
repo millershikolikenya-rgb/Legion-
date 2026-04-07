@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legion Mining Company | Kakamega, Kenya</title>
+  <meta name="description" content="Legion Mining Company — Gold ore purchasing and Carbon-in-Leach processing in Kakamega County, Western Kenya. Lab verified. Investor ready."/>
+  <meta property="og:title" content="Legion Mining Company"/>
+  <meta property="og:description" content="Gold ore purchasing and CIL processing in Kakamega County, Kenya. KES 8M seed round open."/>
+  <meta property="og:url" content="https://millershikoli.space"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDWNWH3K7V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VDWNWH3K7V');
+  </script>
+  <style>
+    :root {
+      --gold: #C9972A;
+      --gold-light: #E8B84B;
+      --gold-pale: #F5DFA0;
+      --dark: #0A0804;
+      --dark-2: #111008;
+      --dark-3: #1A1610;
+      --dark-4: #242018;
+      --dark-5: #2E2A20;
+      --text: #E8E0CC;
+      --text-muted: #8A8070;
+      --border: rgba(201,151,42,0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NOISE TEXTURE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(10,8,4,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--text); font-weight: 400; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gold);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: rgba(10,8,4,0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 899;
+      padding: 1.5rem 2rem;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 8rem 2rem 4rem;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(201,151,42,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,151,42,0.05) 0%, transparent 50%),
+        var(--dark);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1200px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 0.85rem 2rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      padding: 0.85rem 2rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: rgba(201,151,42,0.1);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--gold);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* GOLD PRICE TICKER */
+    .ticker {
+      background: var(--dark-3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.7rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      overflow: hidden;
+    }
+
+    .ticker-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .ticker-value {
+      font-size: 0.85rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .ticker-change { color: #4CAF50; font-size: 0.8rem; }
+
+    /* SECTIONS */
+    section { padding: 6rem 2rem; }
+
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .section-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    /* ABOUT */
+    .about { background: var(--dark-2); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p strong { color: var(--gold); font-weight: 600; }
+
+    .process-steps { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .step {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.2rem;
+      background: var(--dark-4);
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+
+    .step:hover { border-color: var(--gold); }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.5;
+      line-height: 1;
+      min-width: 2rem;
+    }
+
+    .step-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .step-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ORE SAMPLE RESULTS */
+    .results { background: var(--dark); }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .result-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .result-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .result-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .result-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .result-unit { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .result-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .lab-note {
+      background: var(--dark-4);
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* GALLERY */
+    .gallery { background: var(--dark-2); }
+
+    .gallery-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.3s;
+    }
+
+    .tab-btn.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .photo-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--dark-4);
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .photo-item:hover img { transform: scale(1.05); }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      padding: 1.5rem 1rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text);
+      transform: translateY(100%);
+      transition: transform 0.3s;
+    }
+
+    .photo-item:hover .photo-caption { transform: translateY(0); }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .photo-placeholder-icon { font-size: 2rem; opacity: 0.4; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .video-item {
+      background: var(--dark-4);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .video-thumb {
+      aspect-ratio: 16/9;
+      background: var(--dark-5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .play-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(201,151,42,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    .video-thumb:hover .play-btn { transform: scale(1.1); }
+
+    .video-info { padding: 1rem 1.2rem; }
+
+    .video-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .video-date { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* FIELD UPDATES / BLOG */
+    .updates { background: var(--dark); }
+
+    .updates-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .post-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .post-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      transition: border-color 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .post-card:hover {
+      border-color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,151,42,0.12);
+      padding: 0.2rem 0.6rem;
+    }
+
+    .post-date { font-size: 0.75rem; color: var(--text-muted); }
+
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .post-excerpt { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+
+    .post-read-more {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* WRITE POST PANEL */
+    .write-panel {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      position: sticky;
+      top: 80px;
+    }
+
+    .write-panel h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-group { margin-bottom: 1rem; }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--dark-5);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.65rem 0.9rem;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-textarea { resize: vertical; min-height: 120px; }
+
+    .form-select option { background: var(--dark-4); }
+
+    /* MODAL for full post */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 990;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      max-width: 680px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .modal-close:hover { color: var(--gold); }
+
+    .modal-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,151,42,0.12);
+      padding: 0.2rem 0.6rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-date { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+    .modal-body {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      white-space: pre-wrap;
+    }
+
+    /* ROI CALCULATOR */
+    .calculator { background: var(--dark-2); }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .calc-inputs { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .grade-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+
+    .grade-btn {
+      background: var(--dark-4);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.85rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    .grade-btn.active {
+      background: rgba(201,151,42,0.15);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .grade-btn-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .grade-btn-label { font-size: 0.7rem; color: inherit; opacity: 0.7; }
+
+    .low-grade-warning {
+      display: none;
+      background: rgba(220,50,50,0.1);
+      border: 1px solid rgba(220,50,50,0.4);
+      color: #ff6b6b;
+      padding: 0.75rem 1rem;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .calc-results {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      padding: 2rem;
+    }
+
+    .calc-result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(201,151,42,0.1);
+    }
+
+    .calc-result-row:last-child { border-bottom: none; }
+
+    .calc-result-label { font-size: 0.85rem; color: var(--text-muted); }
+
+    .calc-result-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .calc-result-row.total .calc-result-label { color: var(--text); font-weight: 500; }
+    .calc-result-row.total .calc-result-value { font-size: 1.4rem; }
+
+    .breakeven-bar {
+      margin-top: 1.5rem;
+      background: var(--dark-5);
+      height: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .breakeven-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transition: width 0.6s ease;
+    }
+
+    .breakeven-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    /* PITCH DECK */
+    .pitch { background: var(--dark); }
+
+    .pitch-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pitch-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gold);
+    }
+
+    .pitch-version {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .pitch-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .pitch-details {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .pitch-detail { font-size: 0.85rem; color: var(--text-muted); }
+    .pitch-detail strong { color: var(--text); }
+
+    /* MILESTONES */
+    .milestones { background: var(--dark-2); }
+
+    .milestone-track { position: relative; padding-left: 2rem; }
+
+    .milestone-track::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold), transparent);
+    }
+
+    .milestone-item {
+      position: relative;
+      padding: 0 0 2.5rem 2rem;
+    }
+
+    .milestone-item::before {
+      content: '';
+      position: absolute;
+      left: -0.35rem;
+      top: 0.35rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .milestone-item.pending::before { background: var(--dark-5); border: 1px solid var(--gold); }
+
+    .milestone-date {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .milestone-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .milestone-desc { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* INVEST */
+    .invest { background: var(--dark); }
+
+    .invest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .invest-terms { display: flex; flex-direction: column; gap: 1rem; }
+
+    .term-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.2rem;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+    }
+
+    .term-key { font-size: 0.85rem; color: var(--text-muted); }
+
+    .term-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+
+    .footer-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 800;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover { transform: scale(1.1); }
+
+    .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-grid,
+      .about-grid,
+      .calc-grid,
+      .invest-grid,
+      .updates-layout,
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      .pitch-card { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+
+      .write-panel { position: static; }
+      section { padding: 4rem 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats { grid-template-columns: 1fr; }
+      .grade-selector { grid-template-columns: 1fr; }
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content > * {
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.55s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">LEGION <span>MINING</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#results">Lab Results</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#updates">Field Updates</a></li>
+    <li><a href="#calculator">ROI</a></li>
+    <li><a href="#invest">Invest</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#results" onclick="closeMenu()">Lab Results</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#updates" onclick="closeMenu()">Field Updates</a>
+  <a href="#calculator" onclick="closeMenu()">ROI Calculator</a>
+  <a href="#invest" onclick="closeMenu()">Invest</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Kakamega County, Western Kenya</div>
+      <h1>Gold Recovery<br/>Built on <em>Real Evidence</em></h1>
+      <p class="hero-desc">Legion Mining Company purchases gold ore and processes it through Carbon-in-Leach (CIL) — recovering gold that mercury and gravity methods leave behind. Lab verified. Field documented. Investor ready.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/254758104145?text=Hello%20Miller%2C%20I%20would%20like%20to%20request%20the%20Legion%20Mining%20pitch%20deck." target="_blank" class="btn-primary">Request Pitch Deck</a>
+        <a href="#invest" class="btn-outline">Invest Now</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-number">2.58</div>
+        <div class="stat-label">ppm Gold — Lab Verified</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">90%</div>
+        <div class="stat-label">CIL Recovery Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">KES 8M</div>
+        <div class="stat-label">Seed Round Open</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="goldPriceHero">—</div>
+        <div class="stat-label">Live Gold Price (KES/g)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOLD PRICE TICKER -->
+<div class="ticker">
+  <span class="ticker-label">Live Gold</span>
+  <span class="ticker-value">XAU/USD: <strong id="goldUSD">Loading...</strong></span>
+  <span class="ticker-value">KES/g: <strong id="goldKES">Loading...</strong></span>
+  <span class="ticker-change" id="goldChange">↑</span>
+  <span class="ticker-value" style="margin-left:auto; font-size:0.75rem; color:var(--text-muted);">JML Lab Job No. 1470 · Syenite Host Rock · Kakamega County</span>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-eyebrow">Who We Are</div>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Carbon-in-Leach Processing in the Heart of Kenya's Gold Belt</h2>
+        <p>Legion Mining Company is a gold ore purchasing and CIL processing operation based in Kakamega County — one of Kenya's most productive artisanal mining regions within the Lake Victoria Greenstone Belt.</p>
+        <p>We buy raw ore from small-scale miners, process it through Carbon-in-Leach technology, and recover <strong>85–92% of actual gold content</strong> — compared to 40–60% from traditional mercury amalgamation.</p>
+        <p>Founded and operated by <strong>Miller Shikoli</strong>, every aspect of this business is built on field documentation, lab verification, and hands-on operational experience — not projections alone.</p>
+        <p>The host rock at our primary site is <strong>Syenite</strong> — a credible and well-documented gold-bearing formation in the East African geological record.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <div class="step-title">Ore Sourcing</div>
+            <div class="step-desc">Purchase gold-bearing ore from verified artisanal mining sites in Kakamega County</div>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div>
+            <div class="step-title">Crushing & Milling</div>
+            <div class="step-desc">Reduce ore to fine particle size to liberate gold particles from host rock</div>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <div class="step-title">Gravity Separation</div>
+            <div class="step-desc">Sluicing removes lighter waste material, concentrating heavy gold particles</div>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div>
+            <div class="step-title">CIL Processing</div>
+            <div class="step-desc">Carbon-in-Leach dissolves and captures gold chemically — including pyrite-locked gold gravity misses</div>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div>
+            <div class="step-title">Gold Recovery</div>
+            <div class="step-desc">Strip carbon, smelt, and sell refined gold at market rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORE SAMPLE RESULTS -->
+<section class="results" id="results">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Laboratory Analysis</div>
+        <h2 class="section-title">Ore Sample Results</h2>
+      </div>
+      <span style="font-size:0.8rem; color:var(--text-muted);">JML Analytical Laboratory · Job No. 1470</span>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-value">2.58</div>
+        <div class="result-unit">parts per million (ppm)</div>
+        <div class="result-label">Gold (Au) Content</div>
+      </div>
+      <div class="result-card">
+        <div class="result-value">5,804</div>
+        <div class="result-unit">parts per million (ppm)</div>
+        <div class="result-label">Copper (Cu) Content</div>
+      </div>
+      <div class="result-card">
+        <div class="result-value">Syenite</div>
+        <div class="result-unit">Host Formation</div>
+        <div class="result-label">Rock Classification</div>
+      </div>
+    </div>
+    <div class="lab-note">
+      <strong style="color:var(--text);">Chemist Note:</strong> Single-sample assay results are indicative. Grade variability is normal in artisanal mining contexts. Multiple samples from different zones are recommended for full grade characterization. Copper presence at 5,804 ppm indicates potential polymetallic value beyond gold. Cyanide sample manipulation — common in East African artisanal contexts — was assessed and controlled for in this analysis.
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Visual Documentation</div>
+        <h2 class="section-title">Field Gallery</h2>
+      </div>
+    </div>
+
+    <div class="gallery-tabs">
+      <button class="tab-btn active" onclick="switchTab('photos')">Photos</button>
+      <button class="tab-btn" onclick="switchTab('videos')">Videos</button>
+    </div>
+
+    <div class="tab-content active" id="tab-photos">
+      <div class="photo-grid" id="photoGrid">
+        <!-- Photos added dynamically or hardcoded below -->
+        <div class="photo-item">
+          <div class="photo-placeholder">
+            <div class="photo-placeholder-icon">📷</div>
+            <span>White quartz with iron oxide streak</span>
+          </div>
+          <div class="photo-caption">Iron oxide staining — oxidized pyrite indicator</div>
+        </div>
+        <div class="photo-item">
+          <div class="photo-placeholder">
+            <div class="photo-placeholder-icon">📷</div>
+            <span>Gossan formation sample</span>
+          </div>
+          <div class="photo-caption">Gossan — porous cap rock above sulfide ore body</div>
+        </div>
+        <div class="photo-item">
+          <div class="photo-placeholder">
+            <div class="photo-placeholder-icon">📷</div>
+            <span>Sulfide-bearing quartz — three angles</span>
+          </div>
+          <div class="photo-caption">Partially oxidized pyrite within crystalline quartz</div>
+        </div>
+        <div class="photo-item">
+          <div class="photo-placeholder">
+            <div class="photo-placeholder-icon">📷</div>
+            <span>Mine site — Kakamega County</span>
+          </div>
+          <div class="photo-caption">Active artisanal mining site, Site X</div>
+        </div>
+        <div class="photo-item">
+          <div class="photo-placeholder">
+            <div class="photo-placeholder-icon">📷</div>
+            <span>Sluice setup — gravity separation</span>
+          </div>
+          <div class="photo-caption">Water flow + blanket sluice in operation</div>
+        </div>
+        <div class="photo-item" style="border: 1px dashed var(--gold); cursor: default;">
+          <div class="photo-placeholder">
+            <div class="photo-placeholder-icon" style="opacity:0.3;">＋</div>
+            <span style="color:var(--gold); opacity:0.6;">More photos coming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-videos">
+      <div class="video-grid">
+        <div class="video-item">
+          <div class="video-thumb">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Sluice operation — gravity gold separation</div>
+            <div class="video-date">April 2026 · Kakamega County</div>
+          </div>
+        </div>
+        <div class="video-item">
+          <div class="video-thumb">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Crusher output — fine sand processing</div>
+            <div class="video-date">April 2026 · Site X</div>
+          </div>
+        </div>
+        <div class="video-item">
+          <div class="video-thumb">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Underground mine interior documentation</div>
+            <div class="video-date">April 2026 · Site X</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD UPDATES / BLOG -->
+<section class="updates" id="updates">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">From the Field</div>
+        <h2 class="section-title">Field Updates</h2>
+      </div>
+    </div>
+    <div class="updates-layout">
+      <div>
+        <div class="post-list" id="postList">
+          <!-- Posts rendered by JS -->
+        </div>
+      </div>
+      <div class="write-panel">
+        <h3>✍️ Write a Post</h3>
+        <div class="form-group">
+          <label class="form-label">Title</label>
+          <input class="form-input" id="postTitle" placeholder="e.g. First yield from Site X" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select class="form-select" id="postTag">
+            <option value="Field Report">Field Report</option>
+            <option value="Lab Results">Lab Results</option>
+            <option value="Operations">Operations</option>
+            <option value="Geology">Geology</option>
+            <option value="Investor Update">Investor Update</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Content</label>
+          <textarea class="form-textarea" id="postContent" placeholder="Write your field update here..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;" onclick="publishPost()">Publish Update</button>
+        <p style="font-size:0.72rem; color:var(--text-muted); margin-top:0.75rem; line-height:1.5;">Posts are saved locally in your browser. To make them permanent, copy the post data and update your site files.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="calculator" id="calculator">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Investment Analysis</div>
+        <h2 class="section-title">ROI Calculator</h2>
+      </div>
+    </div>
+    <div class="calc-grid">
+      <div class="calc-inputs">
+        <div class="form-group">
+          <label class="form-label">Investment Amount (KES)</label>
+          <input class="form-input" id="investAmount" type="number" value="8000000" oninput="calcROI()"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Ore Grade per Batch</label>
+          <div class="grade-selector">
+            <button class="grade-btn" onclick="setGrade(7, this)">
+              <span class="grade-btn-value">7g</span>
+              <span class="grade-btn-label">Low Grade</span>
+            </button>
+            <button class="grade-btn active" onclick="setGrade(11, this)">
+              <span class="grade-btn-value">11g</span>
+              <span class="grade-btn-label">Mid Grade</span>
+            </button>
+            <button class="grade-btn" onclick="setGrade(15, this)">
+              <span class="grade-btn-value">15g</span>
+              <span class="grade-btn-label">High Grade</span>
+            </button>
+          </div>
+          <div class="low-grade-warning" id="lowGradeWarning">
+            ⚠️ Low-grade ore (7g/batch) produces reduced margins. ROI and breakeven period are less favorable. Consider blending with higher-grade ore to improve economics.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Batches per Month</label>
+          <input class="form-input" id="batchCount" type="number" value="4" min="1" max="20" oninput="calcROI()"/>
+        </div>
+      </div>
+      <div class="calc-results">
+        <div class="calc-result-row">
+          <span class="calc-result-label">Gold per Batch</span>
+          <span class="calc-result-value" id="goldPerBatch">11g</span>
+        </div>
+        <div class="calc-result-row">
+          <span class="calc-result-label">Revenue per Batch</span>
+          <span class="calc-result-value" id="revenuePerBatch">—</span>
+        </div>
+        <div class="calc-result-row">
+          <span class="calc-result-label">Cost per Batch</span>
+          <span class="calc-result-value" id="costPerBatch">—</span>
+        </div>
+        <div class="calc-result-row">
+          <span class="calc-result-label">Monthly Net Profit</span>
+          <span class="calc-result-value" id="monthlyProfit">—</span>
+        </div>
+        <div class="calc-result-row">
+          <span class="calc-result-label">Annual ROI</span>
+          <span class="calc-result-value" id="annualROI">—</span>
+        </div>
+        <div class="calc-result-row total">
+          <span class="calc-result-label">Breakeven Period</span>
+          <span class="calc-result-value" id="breakeven">—</span>
+        </div>
+        <div class="breakeven-bar">
+          <div class="breakeven-fill" id="breakevenFill" style="width:0%"></div>
+        </div>
+        <div class="breakeven-label" id="breakevenLabel">Breakeven progress at 18 months</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PITCH DECK -->
+<section class="pitch" id="pitch">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Investor Materials</div>
+        <h2 class="section-title">Pitch Deck</h2>
+      </div>
+    </div>
+    <div class="pitch-card">
+      <div>
+        <div class="pitch-version">Version 2 · Updated March 2026</div>
+        <div class="pitch-title">Legion Mining Company<br/>Investor Pitch Deck</div>
+        <div class="pitch-details">
+          <div class="pitch-detail"><strong>Format:</strong> PDF · 10 Slides</div>
+          <div class="pitch-detail"><strong>Round:</strong> KES 8,000,000 Seed</div>
+          <div class="pitch-detail"><strong>Equity:</strong> 30–40%</div>
+          <div class="pitch-detail"><strong>Lab:</strong> JML Analytical · Job No. 1470</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1rem; min-width:180px;">
+        <a href="https://wa.me/254758104145?text=Hello%20Miller%2C%20I%20would%20like%20to%20request%20the%20Legion%20Mining%20pitch%20deck." target="_blank" class="btn-primary" style="text-align:center;">📩 Request via WhatsApp</a>
+        <a href="mailto:millershikolikenya@gmail.com?subject=Legion%20Mining%20-%20Pitch%20Deck%20Request&body=Hello%20Miller%2C%20I%20would%20like%20to%20request%20the%20Legion%20Mining%20pitch%20deck." class="btn-outline" style="text-align:center;">✉ Request via Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MILESTONES -->
+<section class="milestones" id="milestones" style="background: var(--dark-2);">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Progress</div>
+        <h2 class="section-title">Milestone Tracker</h2>
+      </div>
+    </div>
+    <div class="milestone-track">
+      <div class="milestone-item">
+        <div class="milestone-date">March 2026</div>
+        <div class="milestone-title">Company Founded — Legion Mining Company</div>
+        <div class="milestone-desc">Business model established, financial projections built, pitch materials created</div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-date">March 2026</div>
+        <div class="milestone-title">Lab Analysis Completed</div>
+        <div class="milestone-desc">JML Analytical Laboratory Job No. 1470 — 2.58 ppm Au, 5,804 ppm Cu confirmed</div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-date">April 2026</div>
+        <div class="milestone-title">Field Documentation — Site X</div>
+        <div class="milestone-desc">Geological mapping, rock sample collection, sluice operation documented. Iron oxide, gossan, and sulfide-bearing quartz confirmed</div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-date">April 2026</div>
+        <div class="milestone-title">First Personal Yield — 0.8g Gold</div>
+        <div class="milestone-desc">8 points recovered from one spade of quartz ore in 2 days — KES 6,720 realized</div>
+      </div>
+      <div class="milestone-item pending">
+        <div class="milestone-date">Upcoming</div>
+        <div class="milestone-title">Seed Round Close — KES 8,000,000</div>
+        <div class="milestone-desc">Investor commitment finalized, processing equipment acquisition begins</div>
+      </div>
+      <div class="milestone-item pending">
+        <div class="milestone-date">Upcoming</div>
+        <div class="milestone-title">CIL Processing Plant — Operational</div>
+        <div class="milestone-desc">First full 20-tonne batch processed, revenue generation begins</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVEST -->
+<section class="invest" id="invest">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Join the Round</div>
+        <h2 class="section-title">Investment Opportunity</h2>
+      </div>
+    </div>
+    <div class="invest-grid">
+      <div>
+        <div class="invest-terms">
+          <div class="term-row">
+            <span class="term-key">Round Size</span>
+            <span class="term-value">KES 8,000,000</span>
+          </div>
+          <div class="term-row">
+            <span class="term-key">Equity Offered</span>
+            <span class="term-value">30–40%</span>
+          </div>
+          <div class="term-row">
+            <span class="term-key">Projected Annual ROI</span>
+            <span class="term-value">25–30%</span>
+          </div>
+          <div class="term-row">
+            <span class="term-key">Breakeven Period</span>
+            <span class="term-value">18 Months</span>
+          </div>
+          <div class="term-row">
+            <span class="term-key">CIL Recovery Rate</span>
+            <span class="term-value">90%</span>
+          </div>
+          <div class="term-row">
+            <span class="term-key">Lab Verification</span>
+            <span class="term-value">JML Analytical</span>
+          </div>
+          <div class="term-row">
+            <span class="term-key">Location</span>
+            <span class="term-value">Kakamega County, Kenya</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--text); margin-bottom:1.5rem;">Get In Touch</h3>
+        <form class="contact-form" action="https://formsubmit.co/millershikolikenya@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Legion Mining — Investor Inquiry"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input class="form-input" name="name" placeholder="Your Name" required/>
+          <input class="form-input" name="email" type="email" placeholder="Email Address" required/>
+          <input class="form-input" name="amount" placeholder="Investment Amount (KES)"/>
+          <textarea class="form-textarea" name="message" placeholder="Your message or questions..." style="min-height:100px;"></textarea>
+          <button type="submit" class="btn-primary" style="width:100%;">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Legion Mining Company</div>
+      <p class="footer-desc">Gold ore purchasing and Carbon-in-Leach processing in Kakamega County, Western Kenya. Lab verified. Field documented. Investor ready.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#results">Lab Results</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#updates">Field Updates</a></li>
+        <li><a href="#calculator">ROI Calculator</a></li>
+        <li><a href="#invest">Invest</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:millershikolikenya@gmail.com">millershikolikenya@gmail.com</a></li>
+        <li><a href="https://wa.me/254758104145">WhatsApp: +254 758 104 145</a></li>
+        <li><a href="https://linkedin.com/in/miller-shikoli-758a3536b">LinkedIn</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Legion Mining Company. Kakamega County, Kenya.</span>
+    <span>millershikoli.space</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/254758104145" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- POST MODAL -->
+<div class="modal-overlay" id="postModal" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('postModal').classList.remove('open')">✕</button>
+    <div class="modal-tag" id="modalTag"></div>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-date" id="modalDate"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+  // ── NAV ──
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // ── GOLD PRICE ──
+  async function fetchGoldPrice() {
+    try {
+      const r = await fetch('https://api.metals.live/v1/spot/gold');
+      const d = await r.json();
+      const usd = d[0]?.price || 3200;
+      const rate = 129;
+      const kes = Math.round(usd * rate / 31.1035);
+      document.getElementById('goldUSD').textContent = '$' + usd.toFixed(2);
+      document.getElementById('goldKES').textContent = 'KES ' + kes.toLocaleString();
+      document.getElementById('goldPriceHero').textContent = kes.toLocaleString();
+      window._goldKES = kes;
+      calcROI();
+    } catch {
+      document.getElementById('goldUSD').textContent = '$3,200';
+      document.getElementById('goldKES').textContent = 'KES 15,000';
+      document.getElementById('goldPriceHero').textContent = '15,000';
+      window._goldKES = 15000;
+      calcROI();
+    }
+  }
+  fetchGoldPrice();
+
+  // ── TABS ──
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+  }
+
+  // ── ROI CALCULATOR ──
+  let currentGrade = 11;
+
+  function setGrade(g, btn) {
+    currentGrade = g;
+    document.querySelectorAll('.grade-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('lowGradeWarning').style.display = g === 7 ? 'block' : 'none';
+    calcROI();
+  }
+
+  function calcROI() {
+    const invest = parseFloat(document.getElementById('investAmount').value) || 8000000;
+    const batches = parseInt(document.getElementById('batchCount').value) || 4;
+    const goldPrice = window._goldKES || 15000;
+    const recovery = 0.90;
+    const goldPerBatch = currentGrade * recovery;
+    const revPerBatch = goldPerBatch * goldPrice;
+    const oreCost = 150000;
+    const processCost = 3500 * 20;
+    const costPerBatch = oreCost + processCost;
+    const profitPerBatch = revPerBatch - costPerBatch;
+    const monthlyProfit = profitPerBatch * batches;
+    const annualProfit = monthlyProfit * 12;
+    const roi = (annualProfit / invest) * 100;
+    const breakevenMonths = invest / monthlyProfit;
+
+    document.getElementById('goldPerBatch').textContent = goldPerBatch.toFixed(1) + 'g';
+    document.getElementById('revenuePerBatch').textContent = 'KES ' + Math.round(revPerBatch).toLocaleString();
+    document.getElementById('costPerBatch').textContent = 'KES ' + costPerBatch.toLocaleString();
+    document.getElementById('monthlyProfit').textContent = 'KES ' + Math.round(monthlyProfit).toLocaleString();
+    document.getElementById('annualROI').textContent = roi.toFixed(1) + '%';
+    document.getElementById('breakeven').textContent = breakevenMonths.toFixed(1) + ' months';
+
+    const pct = Math.min((18 / breakevenMonths) * 100, 100);
+    document.getElementById('breakevenFill').style.width = pct + '%';
+    document.getElementById('breakevenLabel').textContent =
+      `Breakeven in ${breakevenMonths.toFixed(1)} months vs 18-month target`;
+  }
+  calcROI();
+
+  // ── BLOG / POSTS ──
+  const defaultPosts = [
+    {
+      id: 1,
+      title: "First Personal Yield — 8 Points from Site X",
+      tag: "Field Report",
+      date: "April 5, 2026",
+      excerpt: "Worked a 24-hour shift at the artisanal mining site. Collected white quartz ore, crushed and processed through a sluice setup. Final yield: 8 points (0.8g) of gold — KES 6,720 from a buyer. That's more than double the daily casual wage for 2 days of work.",
+      content: "Worked a 24-hour shift at the artisanal mining site in Kakamega County. The process: collected white quartz ore, primary crush, petroleum crusher to fine sand, gravity separation through water flow and blanket sluice. Rinsed blanket into metallic basin. Buyer applied mercury amalgamation, burned the amalgam, weighed the gold.\n\nFinal yield: 8 points (0.8g) of gold. Paid KES 6,720 at KES 8,400/g — well below market rate of KES 15,000/g. The difference is the middleman's margin.\n\nThis field experience is exactly the inefficiency Legion Mining's CIL operation is designed to capture. The miner does the work, takes the risk, and walks away with less than 60% of actual gold value. We change that."
+    },
+    {
+      id: 2,
+      title: "Geological Finds — Iron Oxide, Gossan, Sulfide Quartz",
+      tag: "Geology",
+      date: "April 5, 2026",
+      excerpt: "Collected and documented three significant rock types from the mine. White quartz with iron oxide streak, gossan formation with porous tooth-decay texture, and white crystalline quartz with black sulfide patches — all indicators of an active gold system.",
+      content: "Three rock types documented and photographed today from Site X:\n\n1. WHITE QUARTZ WITH BROWN IRON OXIDE STREAK\nBrownish-orange streak running through milky white quartz. This is oxidized pyrite — limonite/goethite remaining after sulfide breakdown. The contact zone between white quartz and the rust streak is the highest probability gold zone.\n\n2. GOSSAN FORMATION (Tooth Decay Rock)\nGrey-blue outer shell, porous and crumbly, with brown powder. Honeycomb texture where sulfides dissolved, leaving voids. Gossan forms directly above sulfide ore bodies — the 'iron hat' sitting on top of potentially richer unoxidized ore below.\n\n3. WHITE QUARTZ WITH BLACK SULFIDE PATCHES\nThe strongest sample. Dense limonite coating on outer surface, vuggy porous center where pyrite crystals once sat, and dark grey-black patches of partially oxidized pyrite within glassy crystalline quartz. This rock shows every indicator simultaneously.\n\nAll three types kept separate for individual assay. The gossan and sulfide quartz samples will be submitted to JML as priority."
+    }
+  ];
+
+  function loadPosts() {
+    const saved = localStorage.getItem('legionPosts');
+    return saved ? JSON.parse(saved) : defaultPosts;
+  }
+
+  function savePosts(posts) {
+    localStorage.setItem('legionPosts', JSON.stringify(posts));
+  }
+
+  function renderPosts() {
+    const posts = loadPosts();
+    const list = document.getElementById('postList');
+    list.innerHTML = posts.map(p => `
+      <div class="post-card" onclick="openPost(${p.id})">
+        <div class="post-meta">
+          <span class="post-tag">${p.tag}</span>
+          <span class="post-date">${p.date}</span>
+        </div>
+        <div class="post-title">${p.title}</div>
+        <div class="post-excerpt">${p.excerpt}</div>
+        <span class="post-read-more">Read full update →</span>
+      </div>
+    `).join('');
+  }
+
+  function publishPost() {
+    const title = document.getElementById('postTitle').value.trim();
+    const tag = document.getElementById('postTag').value;
+    const content = document.getElementById('postContent').value.trim();
+
+    if (!title || !content) {
+      alert('Please enter a title and content.');
+      return;
+    }
+
+    const posts = loadPosts();
+    const newPost = {
+      id: Date.now(),
+      title,
+      tag,
+      date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
+      excerpt: content.substring(0, 180) + (content.length > 180 ? '...' : ''),
+      content
+    };
+
+    posts.unshift(newPost);
+    savePosts(posts);
+    renderPosts();
+
+    document.getElementById('postTitle').value = '';
+    document.getElementById('postContent').value = '';
+    alert('Post published!');
+  }
+
+  function openPost(id) {
+    const posts = loadPosts();
+    const post = posts.find(p => p.id === id);
+    if (!post) return;
+    document.getElementById('modalTag').textContent = post.tag;
+    document.getElementById('modalTitle').textContent = post.title;
+    document.getElementById('modalDate').textContent = post.date;
+    document.getElementById('modalBody').textContent = post.content;
+    document.getElementById('postModal').classList.add('open');
+  }
+
+  function closeModal(e) {
+    if (e.target.id === 'postModal') {
+      document.getElementById('postModal').classList.remove('open');
+    }
+  }
+
+  renderPosts();
+</script>
+</body>
+</html>
